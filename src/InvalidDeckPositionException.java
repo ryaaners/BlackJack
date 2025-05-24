@@ -1,7 +1,25 @@
-package PACKAGE_NAME;
+public class InvalidDeckPositionException extends Exception {
 
-public class InvalidDeckPositionException extends RuntimeException {
-  public InvalidDeckPositionException(String message) {
-    super(message);
-  }
+    private int positionIdentifier = 0;
+
+    public InvalidDeckPositionException(int inValidPosition) {
+
+        positionIdentifier = inValidPosition;
+
+        System.out.println("Invalid Position" + inValidPosition);
+
+    }
+
+    private InvalidDeckPositionException() {
+        System.out.println("Invalid Position");
+    }
+
+    public String toString() {
+
+        return ("Attempted to get a card from a position not in Deck" + " " + this.positionIdentifier);
+    }
+
+    public int getPositionValue() {
+        return positionIdentifier;
+    }
 }
